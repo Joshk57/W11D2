@@ -8,6 +8,7 @@ function Thermometer() {
     <section>
       <h2>Thermometer</h2>
       <div className="actual-temp">Actual Temperature: {"x"}°F</div>
+      
       <ReactSlider
         value={climateName}
       

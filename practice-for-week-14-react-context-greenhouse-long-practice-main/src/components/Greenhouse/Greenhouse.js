@@ -5,29 +5,23 @@ import { useTheme } from '../../context/ThemeContext';
 import LightSwitch from './LightSwitch';
 import ClimateStats from './ClimateStats';
 
+
 function Greenhouse() {
 
-const {themeName, setThemeName} = useTheme();
-
-const handleClick = (e) => {
-  e.preventDefault();
-  if (themeName === 'day') {
-    setThemeName('day')
-  } else if (themeName === 'night') {
-    setThemeName('night')
-  }
-    
-  }
-}
+  const {themeName, setThemeName} = useTheme();
 
   return (
     
-    
     <section>
+      {themeName === 'day' ? 
       <img  className='greenhouse-img'
             src={dayImage}
             alt='greenhouse' 
-      />
+      /> :
+      <img  className="greenhouse-img"
+            src={nightImage}
+            alt='greenhouse'
+      /> }
       <LightSwitch />
       <ClimateStats />
     </section>

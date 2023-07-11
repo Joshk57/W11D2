@@ -1,14 +1,33 @@
 import './LightSwitch.css';
-import { handleClick } from
+import { useTheme } from '../../context/ThemeContext';
 
 function LightSwitch() {
+
+  const {themeName, setThemeName} = useTheme();
+
+  const handleClick = (e) => {
+    console.log(e.target.innerText)
+    e.preventDefault();
+    if (e.target.innerText === 'DAY') {
+      setThemeName('day')
+    } else if (e.target.innerText === 'NIGHT') {
+      setThemeName('night')
+    } 
+  }
+
+  let classN = ""
+  if (themeName === "day") {
+    classN = "light-switch day"
+  } else if (themeName === "night") {
+    classN = "light-switch night"
+  }
+  
   return (
-    <div className="light-switch day">
+
+    <div className={classN} onClick={handleClick}>
       
-      {/* <div className="on">DAY</div> */}
-      <button onClick={handleClick}>DAY</button>
-      {/* <div className="off">NIGHT</div> */}
-      <button onClick={handleClick}>NIGHT</button>
+      <div className="on">DAY</div>
+      <div className="off">NIGHT</div>
     </div>
   );
 }

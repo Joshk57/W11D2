@@ -1,6 +1,7 @@
 import ReactSlider from "react-slider";
 import "./Thermometer.css";
 import { useClimate } from "../../context/ClimateContext";
+import { useEffect } from "react";
 
 function Thermometer() {
   const { climateName, setClimateName } = useClimate();
@@ -8,8 +9,8 @@ function Thermometer() {
     <section>
       <h2>Thermometer</h2>
       <div className="actual-temp">Actual Temperature: {"x"}°F</div>
-      
-      <ReactSlider
+  
+        <ReactSlider
         value={climateName}
       
         onAfterChange={(val) => {
@@ -30,6 +31,7 @@ function Thermometer() {
         pearling
         minDistance={1}
       />
+      
     </section>
   );
 }

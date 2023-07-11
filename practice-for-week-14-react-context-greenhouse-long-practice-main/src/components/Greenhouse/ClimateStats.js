@@ -1,5 +1,6 @@
 import './ClimateStats.css';
 import { useClimate } from '../../context/ClimateContext';
+import { useEffect } from 'react';
 
 function ClimateStats() {
   const {climateName, setClimateName} = useClimate();
@@ -18,3 +19,5 @@ function ClimateStats() {
 }
 
 export default ClimateStats;
+
+
